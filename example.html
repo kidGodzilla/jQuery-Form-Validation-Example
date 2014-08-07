@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="../../favicon.ico">
+
+    <title>jQuery form validation example</title>
+
+    <!-- Bootstrap core CSS -->
+    <!--    <link href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet">-->
+    <link href="yeti.min.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <style>
+        /* Space out content a bit */
+        body {
+          padding-top: 20px;
+          padding-bottom: 20px;
+        }
+
+        /* Everything but the jumbotron gets side spacing for mobile first views */
+        .header,
+        .marketing,
+        .footer {
+          padding-right: 15px;
+          padding-left: 15px;
+        }
+
+        /* Custom page header */
+        .header {
+          border-bottom: 1px solid #e5e5e5;
+        }
+        /* Make the masthead heading the same height as the navigation */
+        .header h3 {
+          padding-bottom: 19px;
+          margin-top: 0;
+          margin-bottom: 0;
+          line-height: 40px;
+        }
+
+        /* Custom page footer */
+        .footer {
+          padding-top: 19px;
+          color: #777;
+          border-top: 1px solid #e5e5e5;
+        }
+
+        /* Customize container */
+        @media (min-width: 768px) {
+          .container {
+            max-width: 730px;
+          }
+        }
+        .container-narrow > hr {
+          margin: 30px 0;
+        }
+
+        /* Main marketing message and sign up button */
+        .jumbotron {
+          text-align: center;
+          border-bottom: 1px solid #e5e5e5;
+        }
+        .jumbotron .btn {
+          padding: 14px 24px;
+          font-size: 21px;
+        }
+
+        /* Supporting marketing content */
+        .marketing {
+          margin: 40px 0;
+        }
+        .marketing p + h4 {
+          margin-top: 28px;
+        }
+        .other-city {
+          display: none;
+        }
+        .form-group span {
+          color: red;
+        }
+
+        /* Responsive: Portrait tablets and up */
+        @media screen and (min-width: 768px) {
+          /* Remove the padding we set earlier */
+          .header,
+          .marketing,
+          .footer {
+            padding-right: 0;
+            padding-left: 0;
+          }
+          /* Space out the masthead */
+          .header {
+            margin-bottom: 30px;
+          }
+          /* Remove the bottom border on the jumbotron for visual effect */
+          .jumbotron {
+            border-bottom: 0;
+          }
+        }
+    </style>
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  </head>
+
+  <body>
+
+    <div class="container">
+      <div class="header">
+        <h3 class="text-muted">JQUERY FORM VALIDATION EXAMPLE</h3>
+      </div>
+
+      <div class="jumbotron">
+        <h1>QUESTIONNAIRE</h1>
+        <p class="lead">Thank you for your interest in getting spammed, but we would like to send you personalized junk mail as well. Please fill out the form below to assist our marketing team.</p>
+      </div>
+
+        <div class="row">
+            <form role="form" id="spamMeLots">
+            <div class="form-group required">
+              <label for="exampleInputEmail1">First Name <span></span></label>
+              <input type="text" class="form-control" id="" placeholder="Enter your firstest name">
+            </div>
+            <div class="form-group required">
+              <label for="exampleInputEmail1">Last Name <span></span></label>
+              <input type="text" class="form-control" id="" placeholder="Enter your lastest name">
+            </div>
+            <div class="form-group required">
+              <label for="exampleInputPassword1">Address <span></span></label>
+              <input type="text" class="form-control" id="" placeholder="Address">
+            </div>
+            <div class="form-group">
+              <label for="">City</label>
+              <select class="form-control" id="city">
+                <option>Detroit</option>
+                <option>Not Detroit</option>
+                <option>Seattle</option>
+                <option>Antartica</option>
+                <option value="other">Other</option>
+              </select>
+              <p class="help-block">Select `Other` for more option.</p>
+            </div>
+            <div class="form-group other-city required">
+              <label for="">City Name <span></span></label>
+              <input type="text" class="form-control" id="" placeholder="Enter your city name">
+            </div>
+            <div class="form-group five-digits">
+              <label for="">ZIP Code <span></span></label>
+              <input type="text" class="form-control" id="" placeholder="Enter your Zippiest Code">
+            </div>
+            <div class="form-group email first-email">
+              <label for="">Email Address <span></span></label>
+              <input type="text" class="form-control" id="" placeholder="Email Address">
+            </div>
+            <div class="form-group email second-email">
+              <label for="">Confirm Your Email Address <span></span></label>
+              <input type="text" class="form-control" id="" placeholder="Email Address">
+            </div>
+            <div class="form-group">
+              <label for="">What languages do you speak?</label>
+                <div class="checkbox requirement">
+                  <label>
+                    <input type="checkbox"> English <span></span>
+                  </label>
+                </div>
+                <div class="checkbox">
+                  <label>
+                    <input type="checkbox"> Not English
+                  </label>
+                </div>
+            </div>
+            <div class="form-group">
+              <label for="">Can you has car?</label>
+                <div class="radio">
+                  <label>
+                    <input type="radio" name="optionsRadios" id="optionsRadios1" value="option1" checked>
+                    Yeah
+                  </label>
+                </div>
+                <div class="radio">
+                  <label>
+                    <input type="radio" name="optionsRadios" id="optionsRadios2" value="option2">
+                    Nuh-uh
+                  </label>
+                </div>
+            </div>
+            <span id="numErrors" style="color: red"></span>
+            <button type="button" class="btn btn-default pull-right" id="submit">Submit</button>
+            <button type="button" class="btn btn-default pull-right" id="cancel" style="margin-right:10px;">Cancel</button>
+          </form>
+        </div>
+
+      <div class="footer">
+        <p>&copy; James Futhey 2014. No rights reserved.</p>
+      </div>
+
+    </div> <!-- /container -->
+    <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.2.0/js/bootstrap.min.js"></script>
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.2.0/js/alert.min.js"></script>
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.2.0/js/tooltip.min.js"></script>
+    <script type="text/javascript">
+    function isEmail(email) {
+      var regex = /^([a-zA-Z0-9_.+-])+\@(([a-zA-Z0-9-])+\.)+([a-zA-Z0-9]{2,4})+$/;
+      return regex.test(email);
+    }
+    $(document).ready( function() {
+      $('#submit').click(function(e) {
+        var errors = 0;
+
+        $.each($('.required input'), function() {
+          if($(this).is(':visible')) {
+            if($(this).val() === "") {
+              $(this).parent().find('span').html('This is required');
+              errors++;
+            }
+          }
+        });
+
+        if(!$('input[type=checkbox]').is(':checked')) {
+          $('.requirement span').html('This is required');
+          errors++;
+        } else {
+          $('.requirement span').html('');
+        }
+
+        if($('.five-digits input').val().length < 5 || !$.isNumeric($('.five-digits input').val())) {
+          $('.five-digits span').html('This must be at least 5 digits');
+          errors++;
+        }
+
+        $.each($('.email input'), function() {
+          if(!isEmail($(this).val())) {
+            $(this).parent().find('span').html('This must be a valid email address');
+            errors++;
+          }
+        });
+
+        if($('.second-email input').val() !== $('.first-email input').val()) {
+          $('.second-email span').html('Email addresses do not match!');
+          errors++;
+        }
+
+        if(errors) {
+          $('#numErrors').html('There were '+errors+' Errors');
+        } else {
+          $('#numErrors').html('');
+          alert('Congratulations! Look forward to the arrival of our company\'s spam in the near future.');
+          $('#spamMeLots')[0].reset();
+        }
+        
+
+        e.preventDefault();
+        return false;
+      });
+
+      $('#cancel').click(function(e) {
+        $('#spamMeLots')[0].reset();
+        e.preventDefault();
+        return false;
+      });
+
+
+      $('#city').bind('change', function (e) { 
+        if( $('#city').val() == 'other') {
+          $('.other-city').show();
+        }
+        else {
+          $('.other-city').hide();
+        }         
+      });
+
+      $('.required input').blur(function() {
+        if($(this).val() === "") {
+          $(this).parent().find('span').html('This is required');
+        } else {
+          $(this).parent().find('span').html('');
+        }
+      });
+
+      $('.five-digits input').blur(function() {
+        if($(this).val().length < 5 || !$.isNumeric($(this).val())) {
+          $(this).parent().find('span').html('This must be at least 5 digits');
+        } else {
+          $(this).parent().find('span').html('');
+        }
+      });
+
+      $('.email input').blur(function() {
+        if(!isEmail($(this).val())) {
+          $(this).parent().find('span').html('This must be a valid email address');
+        } else {
+          $(this).parent().find('span').html('');
+        }
+      });
+
+      $('.second-email input').blur(function() {
+        if($(this).val() !== $('.first-email input').val()) {
+          $(this).parent().find('span').html('Email addresses do not match!');
+        } else {
+          $(this).parent().find('span').html('');
+        }
+      });
+
+
+    });
+</script>
+  </body>
+</html>
+
