@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
     <meta name="author" content="">
-    <link rel="icon" href="favicon.ico">
+    <link rel="icon" href="../../favicon.ico">
 
     <title>jQuery form validation example</title>
 
@@ -277,36 +277,55 @@
         
 
         e.preventDefault();
+        return false;
       });
 
       $('#cancel').click(function(e) {
         $('#spamMeLots')[0].reset();
         e.preventDefault();
+        return false;
       });
 
 
       $('#city').bind('change', function (e) { 
-        ($('#city').val() == 'other') ? $('.other-city').show() : $('.other-city').hide();
+        if( $('#city').val() == 'other') {
+          $('.other-city').show();
+        }
+        else {
+          $('.other-city').hide();
+        }         
       });
 
       $('.required input').blur(function() {
-        var errorBox = $(this).parent().find('span')
-        ($(this).val() === "") ? errorBox.html('This is required') : errorBox.html('');
+        if($(this).val() === "") {
+          $(this).parent().find('span').html('This is required');
+        } else {
+          $(this).parent().find('span').html('');
+        }
       });
 
       $('.five-digits input').blur(function() {
-        var errorBox = $(this).parent().find('span')
-        ($(this).val().length < 5 || !$.isNumeric($(this).val())) ? errorBox.html('This must be at least 5 digits') : errorBox.html('');
+        if($(this).val().length < 5 || !$.isNumeric($(this).val())) {
+          $(this).parent().find('span').html('This must be at least 5 digits');
+        } else {
+          $(this).parent().find('span').html('');
+        }
       });
 
       $('.email input').blur(function() {
-        var errorBox = $(this).parent().find('span');
-        (!isEmail($(this).val())) ? errorBox.html('This must be a valid email address') :  errorBox.html('');
+        if(!isEmail($(this).val())) {
+          $(this).parent().find('span').html('This must be a valid email address');
+        } else {
+          $(this).parent().find('span').html('');
+        }
       });
 
       $('.second-email input').blur(function() {
-        var errorBox = $(this).parent().find('span');
-        ($(this).val() !== $('.first-email input').val()) ? errorBox.html('Email addresses do not match!') : errorBox.html('');
+        if($(this).val() !== $('.first-email input').val()) {
+          $(this).parent().find('span').html('Email addresses do not match!');
+        } else {
+          $(this).parent().find('span').html('');
+        }
       });
 
 
@@ -314,3 +333,4 @@
 </script>
   </body>
 </html>
+
